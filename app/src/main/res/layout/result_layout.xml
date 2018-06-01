@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="@dimen/std_padding"
+    android:layout_gravity="start"
+    android:layout_marginLeft="@dimen/margin2"
+    android:layout_marginRight="@dimen/margin2"
+    android:layout_marginTop="64dp"
     android:background="@drawable/rounded_rect_white"
     android:elevation="4dp">
 
@@ -13,9 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:animateLayoutChanges="true"
         android:gravity="center"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/header"
@@ -27,7 +30,7 @@
             android:padding="@dimen/std_padding"
             android:text="@string/EverywhereDictionary"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/textColorPrimary"
 
             android:textSize="@dimen/material_text_headline" />
 
@@ -42,6 +45,61 @@
             android:hint="@string/type"
             android:padding="@dimen/std_padding"
             android:textColor="@color/textColorPrimary" />
+
+        <RadioGroup
+            android:id="@+id/rd_grp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/transparent"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+
+            <RadioButton
+                android:id="@+id/rd1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/checkbox_selector"
+                android:button="@null"
+                android:enabled="true"
+                android:gravity="center"
+                android:text="@string/contemporary"
+                android:textColor="@drawable/checkbox_text_color"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rd2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/checkbox_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/Active"
+                android:textColor="@drawable/checkbox_text_color"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rd3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/checkbox_text_color"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/Wordwise"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold" />
+
+
+        </RadioGroup>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -65,15 +123,20 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1" />
+
             <Button
                 android:id="@+id/close_button"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_margin="@dimen/std_padding"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_rect_color"
+                android:background="@android:color/transparent"
                 android:gravity="center"
-                android:padding="@dimen/std_padding"
                 android:text="@string/Cancel"
                 android:textAlignment="center"
                 android:textColor="@color/textColorPrimary" />
@@ -81,16 +144,18 @@
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_margin="@dimen/std_padding"
                 android:layout_weight="1"
-
                 android:background="@drawable/rounded_rect_color"
+                android:elevation="24dp"
                 android:gravity="center"
-                android:padding="@dimen/std_padding"
                 android:text="@string/Search"
                 android:textAlignment="center"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                tools:targetApi="lollipop" />
+
         </LinearLayout>
 
     </LinearLayout>

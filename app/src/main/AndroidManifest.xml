@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="iot.hustler.io.EasyDictionary.ui.ResultActivity"
+            android:name="iot.hustler.io.EasyDictionary.ui.SwiftSearchActivity"
             android:excludeFromRecents="true"
             android:label=""
             android:launchMode="singleInstance"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AWSPOC</string>
+    <string name="app_name">Swift</string>
     <string name="EverywhereDictionary">Everywhere Dictionary</string>
     <string name="no_internet">No Internet connection</string>
     <string name="TIMEOUT_ERROR">Timeout please try again</string>
@@ -9,4 +9,11 @@
     <string name="Search">Search</string>
     <string name="type">Type here</string>
     <string name="Cancel">Cancel</string>
+
+    <string name="launcher_icon_credit"><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" title="Creative Commons BY 3.0">CC 3.0 BY</a></div></string>
+    <string name="click_to_search">Click to search words</string>
+    <string name="tap_to_open">Tap to open</string>
+    <string name="contemporary">Modern</string>
+    <string name="Active">Active</string>
+    <string name="Wordwise">Wordwise</string>
 </resources>

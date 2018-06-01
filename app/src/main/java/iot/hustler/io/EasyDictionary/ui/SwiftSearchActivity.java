@@ -19,7 +19,7 @@ import iot.hustler.io.EasyDictionary.model.pojo.RootObject;
 import iot.hustler.io.EasyDictionary.utils.FontUtils;
 import iot.hustler.io.EasyDictionary.utils.RestUtility;
 
-public class ResultActivity extends Activity implements View.OnClickListener {
+public class SwiftSearchActivity extends Activity implements View.OnClickListener {
     private ScrollView rootView;
     LinearLayout linearLayout;
     private TextView header;
@@ -36,7 +36,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.result_layout);
         findViews();
         overridePendingTransition(R.anim.roll_up, R.anim.roll_down);
-        FontUtils.findtext_and_applyTypeface(ResultActivity.this, linearLayout);
+        FontUtils.findtext_and_applyTypeface(SwiftSearchActivity.this, linearLayout);
     }
 
     private void findViews() {
@@ -49,8 +49,8 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         submitButton = (Button) findViewById(R.id.submit_button);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
-        closeButton.setOnClickListener(ResultActivity.this);
-        submitButton.setOnClickListener(ResultActivity.this);
+        closeButton.setOnClickListener(SwiftSearchActivity.this);
+        submitButton.setOnClickListener(SwiftSearchActivity.this);
     }
 
     /**
@@ -63,7 +63,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if (v == closeButton) {
             // Handle clicks for closeButton
-            ResultActivity.this.finish();
+            SwiftSearchActivity.this.finish();
         } else if (v == submitButton) {
             // Handle clicks for submitButton
             callApi();
@@ -72,7 +72,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 
     private void callApi() {
         progressBar.setVisibility(View.VISIBLE);
-        new RestUtility(ResultActivity.this).getMeaning(ResultActivity.this, searchView.getText().toString(), new WebResponseListener() {
+        new RestUtility(SwiftSearchActivity.this).getMeaning(SwiftSearchActivity.this, searchView.getText().toString(), new WebResponseListener() {
             @Override
             public void onSuccess(RootObject object) {
                 progressBar.setVisibility(View.GONE);

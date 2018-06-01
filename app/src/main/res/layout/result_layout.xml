@@ -20,19 +20,25 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/header"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_rect_b_r_colored"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:padding="@dimen/std_padding"
-            android:text="@string/EverywhereDictionary"
-            android:textAlignment="center"
-            android:textColor="@color/textColorPrimary"
+            android:layout_height="wrap_content">
 
-            android:textSize="@dimen/material_text_headline" />
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_rect_b_r_colored"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:padding="@dimen/std_padding"
+                android:text="@string/EverywhereDictionary"
+                android:textAlignment="center"
+                android:textColor="@color/textColorPrimary"
+
+                android:textSize="@dimen/material_text_headline" />
+        </ScrollView>
+
 
         <EditText
             android:id="@+id/search_view"
@@ -46,60 +52,6 @@
             android:padding="@dimen/std_padding"
             android:textColor="@color/textColorPrimary" />
 
-        <RadioGroup
-            android:id="@+id/rd_grp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/transparent"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-
-            <RadioButton
-                android:id="@+id/rd1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/checkbox_selector"
-                android:button="@null"
-                android:enabled="true"
-                android:gravity="center"
-                android:text="@string/contemporary"
-                android:textColor="@drawable/checkbox_text_color"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rd2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/checkbox_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/Active"
-                android:textColor="@drawable/checkbox_text_color"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rd3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/checkbox_text_color"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/Wordwise"
-                android:textColor="@color/textColorPrimary"
-                android:textStyle="bold" />
-
-
-        </RadioGroup>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -110,7 +62,7 @@
         <TextView
             android:id="@+id/data_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="@dimen/margin1"
             android:gravity="start"
             android:padding="@dimen/std_padding"
@@ -160,5 +112,60 @@
 
     </LinearLayout>
 
+    <!--<RadioGroup-->
+    <!--android:id="@+id/rd_grp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:background="@drawable/transparent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:padding="8dp"-->
+    <!--android:layout_marginLeft="16dp"-->
+    <!--android:layout_marginRight="16dp"-->
+    <!--android:visibility="gone">-->
+
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/rd1"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@drawable/checkbox_selector"-->
+    <!--android:button="@null"-->
+    <!--android:enabled="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/contemporary"-->
+    <!--android:textColor="@drawable/checkbox_text_color"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/rd2"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@drawable/checkbox_selector"-->
+    <!--android:button="@null"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/Active"-->
+    <!--android:textColor="@drawable/checkbox_text_color"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/rd3"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@drawable/checkbox_text_color"-->
+    <!--android:button="@null"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/Wordwise"-->
+    <!--android:textColor="@color/textColorPrimary"-->
+    <!--android:textStyle="bold" />-->
+
+
+    <!--</RadioGroup>-->
 
 </ScrollView>

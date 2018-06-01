@@ -16,4 +16,5 @@
     <string name="contemporary">Modern</string>
     <string name="Active">Active</string>
     <string name="Wordwise">Wordwise</string>
+    <string name="no_word_found">Sorry,Search query not found.</string>
 </resources>

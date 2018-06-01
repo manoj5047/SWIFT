@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -71,18 +72,43 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
     }
 
     private void callApi() {
+        dataView.setVisibility(View.GONE);
+        dataView.setText("");
         progressBar.setVisibility(View.VISIBLE);
         new RestUtility(SwiftSearchActivity.this).getMeaning(SwiftSearchActivity.this, searchView.getText().toString(), new WebResponseListener() {
             @Override
             public void onSuccess(RootObject object) {
                 progressBar.setVisibility(View.GONE);
                 dataView.setVisibility(View.VISIBLE);
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    dataView.setText(String.format("%s%s%s%s%s", object.getResults().get(0).getPartOfSpeech(), System.lineSeparator(), object.getResults().get(0).getPronunciations().get(0).getIpa(), System.lineSeparator(), object.getResults().get(0).getSenses().get(0).getDefinition()));
-                } else {
-                    dataView.setText(String.format("%s\n%s\n%s", object.getResults().get(0).getPartOfSpeech(), object.getResults().get(0).getPronunciations().get(0).getIpa(), object.getResults().get(0).getSenses().get(0).getDefinition()));
+                if (object.getResults() != null) {
+                    if (object.getResults().size() > 0) {
+                        dataView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.textColorPrimary));
+                        String pos = object.getResults().get(0).getPartOfSpeech() != null ? object.getResults().get(0).getPartOfSpeech() : "NA";
+                        String ipa = object.getResults().get(0).getPronunciations() != null ? object.getResults().get(0).getPronunciations().get(0).getIpa() : "NA";
+                        String definition = object.getResults().get(0).getSenses() != null ?
+                                (object.getResults().get(0).getSenses().get(0).getDefinition() != null ?
+                                        object.getResults().get(0).getSenses().get(0).getDefinition() != null ?
+                                                object.getResults().get(0).getSenses().get(0).getDefinition().get(0)
+                                                : "NA"
+                                        : "NA")
+                                : "NA";
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            dataView.setText(String.format("%s%s%s%s%s", pos,
+                                    System.lineSeparator(),
+                                    System.lineSeparator(),
+                                    ipa,
+                                    System.lineSeparator(),
+                                    System.lineSeparator(),
+                                    definition));
+                        } else {
+                            dataView.setText(String.format("%s\n\n%s\n\n%s", pos, ipa, definition));
+                        }
+                    } else {
+                        dataView.setTextColor(Color.RED);
+                        dataView.setText(getString(R.string.no_word_found));
+                    }
                 }
+
             }
 
             @Override

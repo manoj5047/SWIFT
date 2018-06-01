@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+        android:valueFrom="1.0"
+        android:valueTo="0.0"
+        android:propertyName="alpha"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:duration="150" />
+
+    <!-- Rotate. -->
+    <translate
+
+        android:valueFrom="0"
+        android:valueTo="180"
+        android:propertyName="translate"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:duration="150"
+        android:fromYDelta="180%"
+        android:toYDelta="0" />
+
+    <!--&lt;!&ndash; Half-way through the rotation (see startOffset), set the alpha to 1. &ndash;&gt;-->
+    <!--<objectAnimator-->
+        <!--android:valueFrom="0.0"-->
+        <!--android:valueTo="1.0"-->
+        <!--android:propertyName="alpha"-->
+        <!--android:startOffset="@integer/card_flip_time_half"-->
+        <!--android:duration="1" />-->
+</set>

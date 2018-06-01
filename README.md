@@ -1,2 +1,2 @@
-# Swift
-Dictionary Utility tool for androidDevice
+# ED
+SimpleDictionary

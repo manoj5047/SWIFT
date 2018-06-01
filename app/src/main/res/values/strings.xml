@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AWSPOC</string>
+    <string name="EverywhereDictionary">Everywhere Dictionary</string>
+    <string name="no_internet">No Internet connection</string>
+    <string name="TIMEOUT_ERROR">Timeout please try again</string>
+    <string name="SERVER_ERROR">Server error</string>
+    <string name="NETWORK_ERROR">Network error</string>
+    <string name="PARSE_ERROR">Parse error</string>
+    <string name="Search">Search</string>
+    <string name="type">Type here</string>
+    <string name="Cancel">Cancel</string>
+</resources>

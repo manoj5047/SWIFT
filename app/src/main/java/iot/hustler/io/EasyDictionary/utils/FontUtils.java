@@ -82,11 +82,11 @@ public class FontUtils {
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 if (viewGroup.getChildAt(i) instanceof TextView) {
-                    setnormalFont(activity, (TextView) viewGroup.getChildAt(i));
+                    setMoonFont(activity, (TextView) viewGroup.getChildAt(i));
                 } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
                     findtext_and_applyTypeface(activity, (ViewGroup) viewGroup.getChildAt(i));
                 } else if (viewGroup.getChildAt(i) instanceof EditText) {
-                    setnormalFont(activity, (EditText) viewGroup.getChildAt(i));
+                    setMoonFont(activity, (EditText) viewGroup.getChildAt(i));
                 }
             }
         } else {

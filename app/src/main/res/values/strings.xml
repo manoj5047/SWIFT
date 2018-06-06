@@ -20,4 +20,5 @@
     <string name="channel_name">Swift Dictionary</string>
     <string name="channel_description">Search meaning from anywhere in th device with a click on Swift notification.</string>
     <string name="search">Search here</string>
+    <string name="Close">Close</string>
 </resources>

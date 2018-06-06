@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/loginPageBackgroundColor"
+    app:cardCornerRadius="@dimen/card_corner_radius_1"
+    android:layout_margin="4dp">
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp">
+
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:alpha="0.8"
+
+                android:src="@drawable/ic_action_name" />
+
+            <TextView
+                android:id="@+id/serach_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_padding_2"
+                android:layout_marginStart="@dimen/text_padding_2"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/material_text_title"
+                android:textStyle="bold"
+                tools:text="Dream" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:alpha="0.5" />
+
+
+        <TextView
+            android:id="@+id/Meaning"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin_2"
+            android:layout_marginStart="@dimen/text_margin_2"
+            android:padding="@dimen/text_padding_1"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/material_text_subhead"
+            android:textStyle="bold"
+            android:alpha="0.8"
+            android:typeface="sans"
+            tools:text="A dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreamsA dreamer is a guy who always dreams" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:alpha="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/phonetical_spell"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin_4"
+                android:layout_weight="1"
+                android:alpha="0.6"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:padding="@dimen/text_padding_1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/toolbarIconColor"
+                android:textSize="@dimen/material_text_body2"
+                tools:ignore="RtlCompat"
+                tools:text="Phonetic" />
+
+            <TextView
+                android:id="@+id/grammetical_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/text_margin_4"
+                android:layout_weight="1"
+                android:alpha="0.6"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:padding="@dimen/text_padding_1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/toolbarIconColor"
+                android:textSize="@dimen/material_text_body2"
+                tools:ignore="RtlCompat"
+                tools:text="Adjective" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:alpha="0.5" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

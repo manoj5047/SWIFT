@@ -30,10 +30,11 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_rect_b_r_colored"
                 android:elevation="4dp"
-                android:gravity="center"
+                android:gravity="start"
                 android:padding="@dimen/std_padding"
                 android:text="@string/EverywhereDictionary"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
                 android:textColor="@color/textColorPrimary"
 
                 android:textSize="@dimen/material_text_headline" />

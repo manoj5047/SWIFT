@@ -28,6 +28,18 @@
             android:theme="@style/popup_style2"
             tools:targetApi="lollipop" />
         <activity android:name=".base.BaseActivity" />
+        <activity android:name=".ui.ResultActivity" />
+
+        <!--SERVIECES-->
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".SwiftService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

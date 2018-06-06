@@ -1,5 +1,6 @@
-package iot.hustler.io.EasyDictionary.ui;
+package iot.hustler.io.EasyDictionary;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,29 +8,43 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.JobIntentService;
 import android.support.v4.app.NotificationCompat;
+import android.widget.Toast;
 
-import iot.hustler.io.EasyDictionary.R;
-import iot.hustler.io.EasyDictionary.base.BaseActivity;
+import iot.hustler.io.EasyDictionary.ui.SwiftSearchActivity;
 
-public class MainActivity extends BaseActivity {
-
+public class SwiftService extends JobIntentService {
+    public static final int JOB_ID = 0x01;
     private static final String CHANNEL_ID = "SWIFT";
     private static final int NOTIFY_ID = 5004;
     NotificationManager notificationManager;
     NotificationCompat.Builder builder;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    public static void enqueueWork(Context context, Intent work) {
+        enqueueWork(context, Notification.class, JOB_ID, work);
+    }
+
+    @Override
+    protected void onHandleWork(@NonNull Intent intent) {
         buildNotification();
+        Toast.makeText(this, "BOOT RECIEVED", Toast.LENGTH_SHORT).show();
+
     }
 
     private void buildNotification() {
         if (notificationManager == null) {
             notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.cancelAll();
         }
         //SETS NOTIFICATION CHANNEL FOR ABOVE ANDROID O (26)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -67,5 +82,4 @@ public class MainActivity extends BaseActivity {
         assert notificationManager != null;
         notificationManager.notify(NOTIFY_ID, builder.build());
     }
-
 }

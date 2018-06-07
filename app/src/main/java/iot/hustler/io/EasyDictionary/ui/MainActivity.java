@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 
 import iot.hustler.io.EasyDictionary.R;
 import iot.hustler.io.EasyDictionary.base.BaseActivity;
@@ -63,9 +64,13 @@ public class MainActivity extends BaseActivity {
         builder.setAutoCancel(false);
         builder.setBadgeIconType(R.drawable.ic_action_name);
         builder.setOngoing(true);
+        builder.setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.click_to_search)));
+        builder.setColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
         builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         assert notificationManager != null;
         notificationManager.notify(NOTIFY_ID, builder.build());
+
     }
 
 }

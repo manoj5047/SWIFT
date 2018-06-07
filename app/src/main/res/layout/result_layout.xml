@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="start"
     android:layout_marginLeft="@dimen/margin2"
     android:layout_marginRight="@dimen/margin2"
@@ -11,14 +11,13 @@
     android:background="@android:color/transparent"
     android:elevation="4dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/root_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:background="@drawable/rounded_rect_white"
         android:gravity="center"
-
         android:orientation="vertical">
 
 
@@ -37,57 +36,71 @@
 
             android:textStyle="bold" />
 
-
-        <EditText
-            android:id="@+id/search_view"
+        <ScrollView
+            android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_margin="@dimen/text_margin_2"
-            android:background="@drawable/rounded_rect_white"
-            android:gravity="start"
-            android:hint="@string/search"
-            android:padding="@dimen/std_padding"
-            android:textColor="@color/colorControlActivated"
-            android:textColorHint="@color/colorAccent" />
+            android:layout_below="@id/header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="@dimen/text_margin_2"
+                    android:background="@drawable/rounded_rect_white"
+                    android:gravity="start"
+                    android:hint="@string/search"
+                    android:padding="@dimen/std_padding"
+                    android:textColor="@color/colorControlActivated"
+                    android:textColorHint="@color/colorAccent" />
 
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:visibility="gone" />
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/data_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_margin_2"
-            android:gravity="start"
-            android:padding="@dimen/text_padding_1"
-            android:text="@string/EverywhereDictionary"
-            android:textColor="@color/textColorPrimary"
-            android:visibility="gone" />
+                <TextView
+                    android:id="@+id/data_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_margin_2"
+                    android:gravity="start"
+                    android:padding="@dimen/text_padding_1"
+                    android:text="@string/EverywhereDictionary"
+                    android:textColor="@color/textColorPrimary"
+                    android:visibility="gone" />
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/results_rv"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_margin="@dimen/text_margin_1"
-            android:nestedScrollingEnabled="true"
-            android:visibility="gone" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/results_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin_1"
+                    android:nestedScrollingEnabled="true"
+                    android:visibility="gone" />
+            </LinearLayout>
 
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@id/main"
+           >
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="1dp"
                 android:layout_margin="@dimen/text_margin_2"
                 android:layout_weight="1" />
 
@@ -120,7 +133,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <!--<RadioGroup-->
     <!--android:id="@+id/rd_grp"-->
@@ -178,4 +191,4 @@
 
     <!--</RadioGroup>-->
 
-</ScrollView>
+</RelativeLayout>

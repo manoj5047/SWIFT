@@ -10,9 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import iot.hustler.io.EasyDictionary.R;
@@ -23,9 +22,7 @@ import iot.hustler.io.EasyDictionary.utils.FontUtils;
 import iot.hustler.io.EasyDictionary.utils.RestUtility;
 
 public class SwiftSearchActivity extends Activity implements View.OnClickListener {
-    private ScrollView rootView;
-    LinearLayout linearLayout;
-    private TextView header;
+    RelativeLayout linearLayout;
     private EditText searchView;
     private TextView dataView;
     private Button closeButton;
@@ -45,15 +42,13 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
     }
 
     private void findViews() {
-        rootView = (ScrollView) findViewById(R.id.root);
-        header = (TextView) findViewById(R.id.header);
-        linearLayout = (LinearLayout) findViewById(R.id.root_header);
-        searchView = (EditText) findViewById(R.id.search_view);
-        dataView = (TextView) findViewById(R.id.data_view);
-        closeButton = (Button) findViewById(R.id.close_button);
-        submitButton = (Button) findViewById(R.id.submit_button);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        results_rv = (RecyclerView) findViewById(R.id.results_rv);
+        linearLayout = findViewById(R.id.root_header);
+        searchView = findViewById(R.id.search_view);
+        dataView = findViewById(R.id.data_view);
+        closeButton = findViewById(R.id.close_button);
+        submitButton = findViewById(R.id.submit_button);
+        progressBar = findViewById(R.id.progress_bar);
+        results_rv = findViewById(R.id.results_rv);
         results_rv.setNestedScrollingEnabled(true);
         results_rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

@@ -2,6 +2,8 @@ package iot.hustler.io.EasyDictionary.ui;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -33,7 +36,6 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
     private ProgressBar progressBar;
     private RecyclerView results_rv;
     private ResultAdapter resultsAdapter;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

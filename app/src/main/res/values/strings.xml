@@ -21,4 +21,16 @@
     <string name="channel_description">Search meaning from anywhere in th device with a click on Swift notification.</string>
     <string name="search">Search here</string>
     <string name="Close">Close</string>
+    <string name="Enble_swift">Enable Swift Dictionary</string>
+    <string name="instructions">Step 1. Enable Swift dictionary activating above button \n \nStep 2. You can find swift notification on Notification bar\n \nStep 3. Click notification to open dictionary from anywhere in the phone from any app\n \nStep 4. If you like it please rate the application in the Google Playstore.
+    </string>
+
+    <string name="ADMOBID">ca-app-pub-9653011938091807~3092157308</string>
+    <string name="BANNER_ADMOBID">ca-app-pub-9653011938091807/3565981784</string>
+    <string name="INTERTIAL_ADMOBID">ca-app-pub-9653011938091807/7750421762</string>
+    <string name="Thanks">Thanks For Using Our app.\n \nCheck notification to use swift dictionary \n\nIf you like our app Please Rate us on Play Store</string>
+    <string name="write_to_us">Write to us</string>
+    <string name="rate">Rate Swift</string>
+    <string name="try_quotzy">Install Quotzy</string>
+    <string name="license">Swift Licensed under Apache 2.0</string>
 </resources>

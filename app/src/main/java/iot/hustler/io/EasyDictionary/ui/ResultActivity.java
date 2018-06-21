@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     RelativeLayout linearLayout;
     private EditText searchView;
     private TextView dataView;
-    private Button closeButton;
+    private ImageView closeButton;
     private Button submitButton;
     private ProgressBar progressBar;
 

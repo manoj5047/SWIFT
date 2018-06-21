@@ -1,18 +1,26 @@
 package iot.hustler.io.EasyDictionary.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import iot.hustler.io.EasyDictionary.R;
 import iot.hustler.io.EasyDictionary.adapters.ResultAdapter;
@@ -25,11 +33,13 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
     RelativeLayout linearLayout;
     private EditText searchView;
     private TextView dataView;
-    private Button closeButton;
+    private ImageView closeButton;
     private Button submitButton;
     private ProgressBar progressBar;
     private RecyclerView results_rv;
     private ResultAdapter resultsAdapter;
+    private AdView adView;
+    private ImageView rate;
 
 
     @Override
@@ -49,20 +59,42 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
         submitButton = findViewById(R.id.submit_button);
         progressBar = findViewById(R.id.progress_bar);
         results_rv = findViewById(R.id.results_rv);
+        rate = findViewById(R.id.rate);
         results_rv.setNestedScrollingEnabled(true);
         results_rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         closeButton.setOnClickListener(SwiftSearchActivity.this);
         submitButton.setOnClickListener(SwiftSearchActivity.this);
+
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("A5B1E467FD401973F9F69AD2CCC13C30").build();
+        adView.loadAd(adRequest);
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity  object
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+            }
+        });
+        searchView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    callApi();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
 //        FontUtils.setMoonFont(this,header);
     }
 
-    /**
-     * Handle button click events<br />
-     * <br />
-     * Auto-created on 2018-05-31 17:58:36 by Android Layout Finder
-     * (http://www.buzzingandroid.com/tools/android-layout-finder)
-     */
+
     @Override
     public void onClick(View v) {
         if (v == closeButton) {

@@ -47,7 +47,8 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/ic_cancel_black_24dp"
             android:clickable="true"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            />
 
         <ImageView
             android:id="@+id/rate"
@@ -114,6 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_margin="@dimen/text_margin_1"
+                    android:nestedScrollingEnabled="true"
                     android:visibility="gone" />
             </LinearLayout>
 

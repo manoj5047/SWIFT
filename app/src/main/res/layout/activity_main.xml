@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
+    android:elevation="4dp"
     tools:context=".ui.MainActivity">
 
     <ScrollView
@@ -17,10 +18,31 @@
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true">
 
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_centerHorizontal="true"
+                android:elevation="0dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_centerHorizontal="true"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/material_text_display1"
+                android:textStyle="bold"/>
+
             <TextView
                 android:id="@+id/text_head"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
+                android:layout_below="@id/head"
                 android:layout_margin="@dimen/margin2"
                 android:background="@drawable/rounded_rect_white"
                 android:elevation="2dp"
@@ -29,7 +51,6 @@
                 android:text="@string/Enble_swift"
                 android:textAlignment="textStart"
                 android:textSize="@dimen/material_text_title"
-
                 tools:ignore="RtlCompat" />
 
             <Switch
@@ -38,6 +59,7 @@
                 android:layout_height="96dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_below="@id/head"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/margin2"
                 android:background="@drawable/rounded_rect_color"
@@ -139,16 +161,17 @@
                     android:textColor="@color/textColorPrimary" />
 
             </RelativeLayout>
+
             <TextView
                 android:id="@+id/reserved"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
                 android:layout_below="@id/instructions2"
-                android:text="@string/license"
-                android:textColor="@color/textColorPrimary"
                 android:layout_centerHorizontal="true"
-                android:alpha="0.4"/>
+                android:alpha="0.4"
+                android:padding="4dp"
+                android:text="@string/license"
+                android:textColor="@color/textColorPrimary" />
 
         </RelativeLayout>
 
@@ -161,6 +184,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:elevation="4dp"
+
         ads:adSize="BANNER"
         ads:adUnitId="@string/BANNER_ADMOBID" />
 </RelativeLayout>

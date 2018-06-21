@@ -47,8 +47,7 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/ic_cancel_black_24dp"
             android:clickable="true"
-            android:elevation="4dp"
-            />
+            android:elevation="4dp" />
 
         <ImageView
             android:id="@+id/rate"

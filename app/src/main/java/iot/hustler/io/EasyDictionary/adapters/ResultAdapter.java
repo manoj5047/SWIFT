@@ -65,58 +65,58 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         holder.pronounce.setText(ipa);
         holder.phonetic.setText(pos);
 
-
-        //                WORsT EVER CODE I HAVE DEALT WITH BECUASE OF COMPLEX JSON PROVIDED BY PEARSON.
-        if (result.getSenses() != null && result.getSenses().size() > 0) {
-            if (result.getSenses().get(0).getGramaticalExamples() != null && result.getSenses().get(0).getGramaticalExamples().size() > 0) {
-                if (result.getSenses().get(0).getGramaticalExamples().get(0).getExamples() != null && result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().size() > 0) {
-                    if (result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio() != null && result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio().size() > 0) {
-                        holder.player.setVisibility(View.GONE);
-//                        MAKE VISIBLE WHEN AUDIO FEATURE IS AVAILABLE
-                    } else {
-                        holder.player.setVisibility(View.GONE);
-                    }
-                } else {
-                    holder.player.setVisibility(View.GONE);
-                }
-            } else {
-                holder.player.setVisibility(View.GONE);
-            }
-        } else {
-            holder.player.setVisibility(View.GONE);
-        }
-
-
-        holder.player.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (holder.player.getVisibility() == View.VISIBLE) {
-                        String audioUrl = "http://api.pearson.com" + result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio().get(0).getUrl();
-                        if (audioUrl.length() > 0) {
-                            if (mediaPlayer[0] == null) {
-                                mediaPlayer[0] = new MediaPlayer();
-                            }
-                            mediaPlayer[0].setAudioStreamType(AudioManager.STREAM_MUSIC);
-                            mediaPlayer[0].setDataSource(audioUrl);
-                            mediaPlayer[0].prepare();
-                            mediaPlayer[0].start();
-                            Toast.makeText(activity, "Playing", Toast.LENGTH_SHORT).show();
-                            Log.d("ADAPTER URL", result.getUrl());
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                mediaPlayer[0].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        Toast.makeText(activity, "STOPPED", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
+//
+//        //                WORsT EVER CODE I HAVE DEALT WITH BECUASE OF COMPLEX JSON PROVIDED BY PEARSON.
+//        if (result.getSenses() != null && result.getSenses().size() > 0) {
+//            if (result.getSenses().get(0).getGramaticalExamples() != null && result.getSenses().get(0).getGramaticalExamples().size() > 0) {
+//                if (result.getSenses().get(0).getGramaticalExamples().get(0).getExamples() != null && result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().size() > 0) {
+//                    if (result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio() != null && result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio().size() > 0) {
+//                        holder.player.setVisibility(View.GONE);
+////                        MAKE VISIBLE WHEN AUDIO FEATURE IS AVAILABLE
+//                    } else {
+//                        holder.player.setVisibility(View.GONE);
+//                    }
+//                } else {
+//                    holder.player.setVisibility(View.GONE);
+//                }
+//            } else {
+//                holder.player.setVisibility(View.GONE);
+//            }
+//        } else {
+//            holder.player.setVisibility(View.GONE);
+//        }
+//
+//
+//        holder.player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    if (holder.player.getVisibility() == View.VISIBLE) {
+//                        String audioUrl = "http://api.pearson.com" + result.getSenses().get(0).getGramaticalExamples().get(0).getExamples().get(0).getAudio().get(0).getUrl();
+//                        if (audioUrl.length() > 0) {
+//                            if (mediaPlayer[0] == null) {
+//                                mediaPlayer[0] = new MediaPlayer();
+//                            }
+//                            mediaPlayer[0].setAudioStreamType(AudioManager.STREAM_MUSIC);
+//                            mediaPlayer[0].setDataSource(audioUrl);
+//                            mediaPlayer[0].prepare();
+//                            mediaPlayer[0].start();
+//                            Toast.makeText(activity, "Playing", Toast.LENGTH_SHORT).show();
+//                            Log.d("ADAPTER URL", result.getUrl());
+//                        }
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//                mediaPlayer[0].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                    @Override
+//                    public void onCompletion(MediaPlayer mp) {
+//                        Toast.makeText(activity, "STOPPED", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
 
     }
 
@@ -140,8 +140,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             definition = itemView.findViewById(R.id.Meaning);
             pronounce = itemView.findViewById(R.id.grammetical_name);
             phonetic = itemView.findViewById(R.id.phonetical_spell);
-            player = (ImageView) itemView.findViewById(R.id.player);
-            player.setOnClickListener(this);
+//            player = (ImageView) itemView.findViewById(R.id.player);
+//            player.setOnClickListener(this);
             FontUtils.setMoonFont(activity, definition);
             FontUtils.setMoonFont(activity, search_query);
 

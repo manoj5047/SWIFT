@@ -25,7 +25,6 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_rect_b_r_colored"
             android:elevation="4dp"
             android:gravity="start"
             android:padding="@dimen/std_padding"
@@ -88,6 +87,98 @@
                     android:padding="@dimen/std_padding"
                     android:textColor="@color/colorControlActivated"
                     android:textColorHint="@color/colorAccent" />
+
+
+
+                <RelativeLayout
+                    android:id="@+id/word_data_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_8">
+                    <TextView
+                        android:id="@+id/word_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Wordwise"
+                        android:textStyle="bold"
+                        android:padding="@dimen/padding_4"
+                        android:textSize="@dimen/material_text_headline"
+                        android:layout_marginStart="@dimen/margin_8" />
+
+                    <TextView
+                        android:id="@+id/word_pron"
+                        android:layout_below="@id/word_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Wordwise"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:padding="2dp"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="italic"
+                        android:paddingStart="@dimen/padding_4"
+                        android:layout_marginBottom="@dimen/margin_8" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_speaker"
+                        android:id="@+id/voice_over"
+                        android:layout_below="@id/word_name"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_toEndOf="@id/word_pron"
+                        android:padding="@dimen/padding_4" />
+
+                    <TextView
+                        android:id="@+id/s_haed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Synonyms"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:textAlignment="center"
+                        android:layout_below="@id/word_pron"
+                        android:padding="@dimen/padding_4"
+                        android:layout_marginEnd="32dp"
+
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/a_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Antonyms"
+                        android:padding="@dimen/padding_4"
+                        android:layout_toEndOf="@id/s_haed"
+                        android:textAlignment="center"
+                        android:layout_below="@id/word_pron"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sy_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/a_head"
+                        android:text="@string/Wordwise"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginEnd="32dp"
+                        android:padding="@dimen/padding_4"
+                        android:alpha="0.5"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/ant_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Wordwise"
+                        android:padding="@dimen/padding_4"
+                        android:textAlignment="center"
+                        android:alpha="0.5"
+                        android:layout_below="@id/a_head"
+                        android:layout_marginLeft="@dimen/margin1"
+                        android:layout_toEndOf="@id/sy_data" />
+                </RelativeLayout>
 
 
                 <ProgressBar

@@ -25,6 +25,8 @@
     <dimen name="text_margin_3">12dp</dimen>
     <dimen name="text_margin_4">16dp</dimen>
     <dimen name="card_corner_radius_2">8dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
 
 
 </resources>

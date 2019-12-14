@@ -33,4 +33,6 @@
     <string name="rate">Rate Swift</string>
     <string name="try_quotzy">Install Quotzy</string>
     <string name="license">Swift Licensed under Apache 2.0</string>
+    <string name="Synonyms">Synonyms</string>
+    <string name="Antonyms">Antonyms</string>
 </resources>

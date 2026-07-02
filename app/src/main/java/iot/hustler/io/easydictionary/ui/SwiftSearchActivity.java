@@ -7,10 +7,10 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,8 +29,6 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import iot.hustler.io.easydictionary.R;
 import iot.hustler.io.easydictionary.adapters.ResultAdapter;
 import iot.hustler.io.easydictionary.model.listeners.WebResponseListener;
@@ -41,45 +39,24 @@ import iot.hustler.io.easydictionary.utils.RestUtility;
 
 public class SwiftSearchActivity extends Activity implements View.OnClickListener {
     RelativeLayout linearLayout;
-    @BindView(R.id.header)
     TextView header;
-    @BindView(R.id.close_button)
     ImageView closeButton;
-    @BindView(R.id.rate)
     ImageView rate;
-    @BindView(R.id.search_view)
     EditText searchView;
-    @BindView(R.id.word_name)
     TextView wordName;
-    @BindView(R.id.word_pron)
     TextView wordPron;
-    @BindView(R.id.voice_over)
     ImageView voiceOver;
-    @BindView(R.id.s_haed)
     TextView sHaed;
-    @BindView(R.id.a_head)
     TextView aHead;
-    @BindView(R.id.sy_data)
     TextView syData;
-    @BindView(R.id.ant_data)
     TextView antData;
-    @BindView(R.id.word_data_layout)
     RelativeLayout wordDataLayout;
-    @BindView(R.id.progress_bar)
     ProgressBar progressBar;
-    @BindView(R.id.data_view)
     TextView dataView;
-    @BindView(R.id.results_rv)
-    RecyclerView resultsRv;
-    @BindView(R.id.main)
     ScrollView main;
-    @BindView(R.id.adView)
     AdView adView;
-    @BindView(R.id.submit_button)
     Button submitButton;
-    @BindView(R.id.root_header)
     RelativeLayout rootHeader;
-    @BindView(R.id.root)
     RelativeLayout root;
 
     private RecyclerView results_rv;
@@ -91,7 +68,27 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_layout);
-        ButterKnife.bind(this);
+
+        root = findViewById(R.id.root);
+        rootHeader = findViewById(R.id.root_header);
+        header = findViewById(R.id.header);
+        closeButton = findViewById(R.id.close_button);
+        rate = findViewById(R.id.rate);
+        searchView = findViewById(R.id.search_view);
+        wordName = findViewById(R.id.word_name);
+        wordPron = findViewById(R.id.word_pron);
+        voiceOver = findViewById(R.id.voice_over);
+        sHaed = findViewById(R.id.s_haed);
+        aHead = findViewById(R.id.a_head);
+        syData = findViewById(R.id.sy_data);
+        antData = findViewById(R.id.ant_data);
+        wordDataLayout = findViewById(R.id.word_data_layout);
+        progressBar = findViewById(R.id.progress_bar);
+        dataView = findViewById(R.id.data_view);
+        results_rv = findViewById(R.id.results_rv);
+        main = findViewById(R.id.main);
+        submitButton = findViewById(R.id.submit_button);
+        linearLayout = root;
         findViews();
         overridePendingTransition(R.anim.roll_up, R.anim.roll_down);
         FontUtils.findtext_and_applyTypeface(SwiftSearchActivity.this, linearLayout);
@@ -123,7 +120,7 @@ public class SwiftSearchActivity extends Activity implements View.OnClickListene
         submitButton.setOnClickListener(SwiftSearchActivity.this);
 
         adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("A5B1E467FD401973F9F69AD2CCC13C30").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
         rate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,8 +12,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        buildNotification();
-        MobileAds.initialize(this, getString(R.string.ADMOBID));
+        MobileAds.initialize(this);
         root = findViewById(R.id.root);
         aSwitch = findViewById(R.id.enable_button);
         info_text = findViewById(R.id.instructions);
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity {
         quotzy = findViewById(R.id.quotzy);
 
         adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("A5B1E467FD401973F9F69AD2CCC13C30").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
         FontUtils.findtext_and_applyTypeface(MainActivity.this, root);
@@ -168,7 +168,11 @@ public class MainActivity extends BaseActivity {
     public void setbuilder() {
         Intent resultIntent = new Intent(this, SwiftSearchActivity.class);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, resultIntent, flags);
         builder.setContentIntent(pendingIntent);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
         builder.setContentTitle(getString(R.string.app_name));
